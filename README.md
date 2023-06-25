@@ -1,6 +1,7 @@
 
 The project is based on the real Airbnb app and is for learning purposes only.
 Front this project, I learned how to use tailwind in a large scale setting.
+you can find the deployed version here.
 
 ## Getting Started
 
