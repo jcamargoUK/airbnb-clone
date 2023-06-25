@@ -14,7 +14,7 @@ const UserMenu = () => {
             md:block
             text-sm
             font-semibold
-            py-3
+            py-6
             px-4
             rounded-full
             hover:bg-neutral-100
