@@ -14,7 +14,7 @@ interface ModalProps {
   actionLable: string;
   disable?: boolean;
   secondaryAction?: () => void;
-  secondaryActionLabel?: string;
+  secondaryActionLabel: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -147,14 +147,10 @@ const Modal: React.FC<ModalProps> = ({
                 >
                   <IoClose size={18} />
                 </button>
-                <div className="text-lg font-semibold">
-                  {title}
-                </div>
+                <div className="text-lg font-semibold">{title}</div>
               </div>
               {/*body*/}
-              <div className="relative p-6 flex-auto">
-                {body}
-              </div>
+              <div className="relative p-6 flex-auto">{body}</div>
               {/*footer*/}
               <div className="flex flex-col gap-2 p-6">
                 <div
@@ -166,7 +162,19 @@ const Modal: React.FC<ModalProps> = ({
                     w-full
                   "
                 >
-                  <Button label="My Button" />
+                  {secondaryAction && secondaryActionLabel && (   
+                  <Button
+                    outline
+                    disabled={disable}
+                    label={secondaryActionLabel}
+                    onClick={handleOnSecondaryAction}
+                  />
+                  )}
+                  <Button
+                    disabled={disable}
+                    label={actionLable}
+                    onClick={handleOnSubmit}
+                  />
                 </div>
               </div>
             </div>
