@@ -1,8 +1,10 @@
+                    
+                    """"It's a working project""""
+
 
 The project is based on the real Airbnb app and is for learning purposes only.
-Front this project, I learned how to use tailwind in a large scale setting.
-you can find the deployed version here.
-
+Front this project, the aim is to replicate the original and learn on my way there.
+I will be updating us I move on
 ## Getting Started
 
 First, run the development server:

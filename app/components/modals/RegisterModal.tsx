@@ -49,7 +49,6 @@ const RegisterModal = () => {
       <Heading 
         title= "Wecome to Airbnb"
         subtitle= "Create an account"
-        center 
       />
       <Input />
     </div>
