@@ -9,7 +9,7 @@ import {
   useForm,
 } from "react-hook-form";
 
-import useRegisterModal from "../hooks/useRegisterModal";
+import useRegisterModal from "../../hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Inputs";
@@ -66,7 +66,7 @@ const RegisterModal = () => {
         errors={errors}
         required
       />
-      {/* <Input 
+      <Input 
         id="name"
         label="Name"
         disabled={isLoading}
@@ -82,7 +82,7 @@ const RegisterModal = () => {
         register={register}
         errors={errors}
         required
-      /> */}
+      />
     </div>
   )
   return ( 

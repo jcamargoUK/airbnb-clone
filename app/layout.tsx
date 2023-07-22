@@ -3,7 +3,7 @@ import { Nunito } from "next/font/google"
 import './globals.css'
 import Navbar from './components/navbar/Navbar'
 import RegisterModal from "./components/modals/RegisterModal"
-import ToasterProvider from "./components/providers/ToasterProvider"
+import ToasterProvider from "./providers/ToasterProvider"
 
 export const metadata = {
   title: 'Airbnb: Vacation Rentals, Cabins, Beach Houses, Unique Homes & Experiences',
