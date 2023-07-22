@@ -66,7 +66,7 @@ const RegisterModal = () => {
         errors={errors}
         required
       />
-      <Input 
+      {/* <Input 
         id="name"
         label="Name"
         disabled={isLoading}
@@ -82,7 +82,7 @@ const RegisterModal = () => {
         register={register}
         errors={errors}
         required
-      />
+      /> */}
     </div>
   )
   return ( 

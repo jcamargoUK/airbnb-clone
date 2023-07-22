@@ -11,8 +11,8 @@ interface InputProps {
   type?: string;
   disabled?: boolean;
   formatPrice?: boolean;
-  required?: boolean;
-  register?: UseFormRegister<FieldValues>;
+  required? : boolean;
+  register: UseFormRegister<FieldValues>;
   errors: FieldErrors
 }
 const Input: React.FC<InputProps> = ({
@@ -31,7 +31,7 @@ const Input: React.FC<InputProps> = ({
         <BiDollar
           size={24}
           className="
-            test-neutral-700
+            text-neutral-700
             absolute
             top-5
             left-2
