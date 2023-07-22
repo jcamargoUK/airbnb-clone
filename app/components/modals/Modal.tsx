@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import Button from "../Button";
 
+// Compare this snippet from app/components/modals/RegisterModal.tsx:
 interface ModalProps {
   isOpen?: boolean;
   onClose: () => void;
@@ -16,7 +17,7 @@ interface ModalProps {
   secondaryAction?: () => void;
   secondaryActionLabel: string;
 }
-
+// define the Modal component
 const Modal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
@@ -29,36 +30,51 @@ const Modal: React.FC<ModalProps> = ({
   secondaryAction,
   secondaryActionLabel,
 }) => {
+  // define the state for the modal
   const [showModal, setShowModal] = useState(isOpen);
 
+  // define the useEffect hook to update the state of the modal
   useEffect(() => {
+    // if the modal is open, set the state to true
     setShowModal(isOpen);
   }, [isOpen]);
 
+  // define the useCallback hook to handle the close event
   const handleClose = useCallback(() => {
+    // if the modal is disabled, return
     if (disable) {
       return;
     }
+    // set the state to false
     setShowModal(false);
+    // set a timeout to close the modal
     setTimeout(() => {
+    // call the onClose function
       onClose();
     }, 300);
   }, [disable, onClose]);
 
+  // define the useCallback hook to handle the submit event
   const handleOnSubmit = useCallback(() => {
+    // if the modal is disabled, return
     if (disable) {
       return;
     }
+    // call the onSubmit function
     onSubmit();
   }, [disable, onSubmit]);
 
+  // define the useCallback hook to handle the secondary action event
   const handleOnSecondaryAction = useCallback(() => {
+    // if the modal is disabled or there is no secondary action, return
     if (disable || !secondaryAction) {
       return;
     }
+    // call the secondaryAction function
     secondaryAction();
   }, [disable, secondaryAction]);
 
+  // if the modal is not open, return null
   if (!isOpen) {
     return null;
   }

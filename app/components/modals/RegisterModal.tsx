@@ -13,11 +13,16 @@ import useRegisterModal from "../hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Inputs";
+import { toast } from "react-hot-toast";
 
+// define the RegisterModal component
 const RegisterModal = () => {
+  // define the state for the register modal
   const registerModal = useRegisterModal()
+  // define the state for the loading
   const [isLoading, setIsLoading] = useState(false)
 
+  // define the useForm hook to handle the form
   const {
     register,
     handleSubmit,
@@ -30,6 +35,7 @@ const RegisterModal = () => {
     }
   })
 
+  // define the onSubmit function to handle the submit event
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true)
     axios.post("/api/register", data)
@@ -37,13 +43,15 @@ const RegisterModal = () => {
         registerModal.onClose()
       })
       .catch((err) => {
-        console.log(err)
+        toast.error("Something went wrong")
       })
       .finally(() => {
         setIsLoading(false)
       })
 
   }
+
+  // define the body content for the modal
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading 
@@ -53,6 +61,23 @@ const RegisterModal = () => {
       <Input 
         id="email"
         label="Email"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input 
+        id="name"
+        label="Name"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input 
+        id="password"
+        type="password"
+        label="Password"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -68,8 +93,7 @@ const RegisterModal = () => {
       actionLable="Continue"
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
-      body={bodyContent}
-    />
+      body={bodyContent} secondaryActionLabel={""}    />
    );
 }
  
